@@ -1,4 +1,4 @@
-//Escribe un programa que pida una frase y escriba las vocales que aparecen
+//9.Escribe un programa que pida una frase y escriba cuantas vocales hay en la frase
 
 
 
@@ -15,7 +15,7 @@ const btnAñadir = document.getElementById('btn-añadir');
 
 const result = document.getElementById ('result')
 
-btnAñadir.addEventListener('click', renderVocales)
+btnAñadir.addEventListener('click', numberOfVocals)
 
 
 function recogerUserPhrase(){
@@ -23,15 +23,13 @@ function recogerUserPhrase(){
 }
 
 
+function numberOfVocals(){
+    const vocales = recogerUserPhrase();
+    const cantidadVocales = vocales.match(/[aeiou]/gi).length;
+    const respuesta = `La frase tiene ${cantidadVocales} vocales`;
+    console.log(cantidadVocales);
+    result.innerHTML = respuesta;
+};
 
+numberOfVocals()
 
-function renderVocales(){
-    const phrase= recogerUserPhrase();
-    const matchVocal = phrase.match(/[aeiou]/gi);
-    const respuesta= `La frase introducida tiene  las vocales ${matchVocal} `
-
-    result.innerHTML = respuesta
-}
-
-
-renderVocales()
